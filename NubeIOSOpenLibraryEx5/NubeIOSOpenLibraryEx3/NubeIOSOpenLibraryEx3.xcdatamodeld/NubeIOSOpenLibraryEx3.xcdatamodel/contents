@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11758" systemVersion="16B2657" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Autor" representedClassName="Autor" syncable="YES" codeGenerationType="class">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="haEscrito" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Libro" inverseName="escritoPor" inverseEntity="Libro" syncable="YES"/>
+    </entity>
+    <entity name="Libro" representedClassName="Libro" syncable="YES" codeGenerationType="class">
+        <attribute name="isbn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portada" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="escritoPor" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Autor" inverseName="haEscrito" inverseEntity="Autor" syncable="YES"/>
+    </entity>
+    <fetchRequest name="getLibroByIsbn" entity="Libro" predicateString="isbn == $isbn"/>
+    <fetchRequest name="getLibros" entity="Libro"/>
+    <elements>
+        <element name="Libro" positionX="-9" positionY="-117" width="128" height="103"/>
+        <element name="Autor" positionX="9" positionY="-81" width="128" height="75"/>
+    </elements>
+</model>
